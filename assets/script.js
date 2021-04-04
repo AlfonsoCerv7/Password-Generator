@@ -75,8 +75,8 @@ function generatePassword() {
   number = numeric();
   special = specialChar();
   charset1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()"
-  charset2 = "abcdefghijklmnopqrstuvwxyz" // would need 16 character sets with this method, and 16 "if" statements for each variable of true/false for the variables requested
-  window.alert("Length is " + length + " Uppercase is " + upper + " Lowercase is " + lower + " numeric is " + number + " Specialchar is " + special);
+  charset2 = "abcdefghijklmnopqrstuvwxyz"
+  
 
 if(upper === true && lower === true && number === true && special === true){
   var pass = "";
@@ -86,7 +86,7 @@ if(upper === true && lower === true && number === true && special === true){
     }
     return pass;
 }
-// The only change needed is something to verify that there is at least one number/special character per password that requested those. but i couldnt find out how to do it, help appreciated!
+
 }
 
 // Get references to the #generate element
