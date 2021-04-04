@@ -1,7 +1,7 @@
 // Assignment code here
 function passwordLength() { // function to get password length
   var length = parseInt(window.prompt("How many characters do you want your password to be?"));
-  console.log(length)
+  
   if(Number.isNaN(length) ){
   window.alert("Please enter a number!")
   return passwordLength();
@@ -46,7 +46,7 @@ function lowercase() { // function to get lowercase variable
 }
 
 function specialChar(){
-  var specchar = window.confirm("Would you like a lowercase in your password?(click cancel for 'no')")
+  var specchar = window.confirm("Would you like a Special Character in your password?(click cancel for 'no')")
   if (specchar ==true) {
     return true;
 
@@ -57,7 +57,7 @@ function specialChar(){
 }
 
 function numeric(){
-  var numb = window.confirm("Would you like a lowercase in your password?(click cancel for 'no')")
+  var numb = window.confirm("Would you like a numeric value in your password?(click cancel for 'no')")
   if (numb == true) {
     return true;
 
@@ -74,9 +74,19 @@ function generatePassword() {
   lower = lowercase();
   number = numeric();
   special = specialChar();
+  charset1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()"
   window.alert("Length is " + length + " Uppercase is " + upper + " Lowercase is " + lower + " numeric is " + number + " Specialchar is " + special);
+
+if(upper === true && lower === true && number === true && special === true){
+  var pass = "";
+  for(i = 0; i < length; i++){
+  var char = Math.floor(Math.random()*charset1.length+1);
+  pass += charset1.charAt(char);
+    }
 }
 
+return pass; 
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -85,9 +95,8 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  console.log(password);
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
