@@ -75,6 +75,7 @@ function generatePassword() {
   number = numeric();
   special = specialChar();
   charset1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()"
+  charset2 = "abcdefghijklmnopqrstuvwxyz"
   window.alert("Length is " + length + " Uppercase is " + upper + " Lowercase is " + lower + " numeric is " + number + " Specialchar is " + special);
 
 if(upper === true && lower === true && number === true && special === true){
@@ -83,9 +84,9 @@ if(upper === true && lower === true && number === true && special === true){
   var char = Math.floor(Math.random()*charset1.length+1);
   pass += charset1.charAt(char);
     }
+    return pass;
 }
 
-return pass; 
 }
 
 // Get references to the #generate element
